@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumer {
 
     @KafkaListener(groupId = "test_group_id", topics = "dbserver1.inventory.customers")
-    public void consumeMessage(String msg){
+    public void consumeMessage(String msg) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonElement je = JsonParser.parseString(msg);
         String prettyJsonString = gson.toJson(je);
